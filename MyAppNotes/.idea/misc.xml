@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../../layout/custom_preview.xml" value="0.25" />
+        <entry key="../../../../layout/custom_preview.xml" value="0.2203125" />
+        <entry key="..\:/AS_PROJECTS/MyAppNotes/app/src/main/res/layout/activity_add_note.xml" value="0.25" />
+        <entry key="..\:/AS_PROJECTS/MyAppNotes/app/src/main/res/layout/activity_change_note.xml" value="0.25" />
+        <entry key="..\:/AS_PROJECTS/MyAppNotes/app/src/main/res/layout/activity_main.xml" value="0.16" />
+        <entry key="..\:/AS_PROJECTS/MyAppNotes/app/src/main/res/layout/content_change_note.xml" value="0.1675929884566054" />
+        <entry key="..\:/AS_PROJECTS/MyAppNotes/app/src/main/res/layout/fragment_first.xml" value="0.1675929884566054" />
+        <entry key="..\:/AS_PROJECTS/MyAppNotes/app/src/main/res/layout/template_item_note.xml" value="0.22" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1655" />
+        <entry key="app/src/main/res/layout/activity_add_note.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/activity_page_notes.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/switch_item.xml" value="0.16" />
+        <entry key="app/src/main/res/layout/template_item_note.xml" value="0.25" />
+        <entry key="app/src/main/res/menu/add_note_toolbar_menu.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/page_note.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

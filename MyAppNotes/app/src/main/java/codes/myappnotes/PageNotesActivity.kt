@@ -8,14 +8,17 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import codes.myappnotes.databinding.ActivityPageNotesBinding
 import codes.myappnotes.db.DataBaseManager
 
 class PageNotesActivity : AppCompatActivity() {
     private val dataBaseManager = DataBaseManager(this@PageNotesActivity)
+    private lateinit var binding: ActivityPageNotesBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_page_notes)
+        binding = ActivityPageNotesBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         addNote(intent.getSerializableExtra("Note") as Note)
         dataBaseManager.openDB()
@@ -41,8 +44,8 @@ class PageNotesActivity : AppCompatActivity() {
                 ).apply {
                     putExtra("Note_data",
                     Note(
-                        findViewById<TextView>(R.id.header).text.toString(),
-                        findViewById<TextView>(R.id.text_).text.toString()
+                        binding.header.text.toString(),
+                        binding.text.text.toString()
                         )
                     )
                 }
@@ -58,7 +61,7 @@ class PageNotesActivity : AppCompatActivity() {
     }
 
     private fun addNote(note: Note) {
-        findViewById<TextView>(R.id.header).text = note.header
-        findViewById<TextView>(R.id.text_).text = note.text
+        binding.header.text = note.header
+        binding.text.text = note.text
     }
 }

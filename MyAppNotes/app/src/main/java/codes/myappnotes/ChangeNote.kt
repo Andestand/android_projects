@@ -6,14 +6,17 @@ import android.os.Bundle
 import android.view.MenuItem
 import android.widget.Button
 import android.widget.TextView
+import codes.myappnotes.databinding.ActivityChangeNoteBinding
 import codes.myappnotes.db.DataBaseManager
 
 class ChangeNote : AppCompatActivity() {
     private val db = DataBaseManager(this)
+    private lateinit var binding: ActivityChangeNoteBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_change_note)
+        binding = ActivityChangeNoteBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         db.openDB()
         changeNote(intent.getSerializableExtra("Note_data") as Note)

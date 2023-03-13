@@ -18,11 +18,11 @@ class AddNoteActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_add_note)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         binding = ActivityAddNoteBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         db.openDB()
-        findViewById<Button>(R.id.changeButton).setOnClickListener {
+        binding.changeButton.setOnClickListener {
             addDataNotes()
         }
     }
@@ -49,19 +49,18 @@ class AddNoteActivity : AppCompatActivity() {
 
      private fun addDataNotes() {
         /** Данный метод осуществляет создание экземпляра HolderView и далее добавляет данные **/
-        val addHeaderNote = findViewById<EditText>(R.id.header_note)
-        val addTextNote = findViewById<EditText>(R.id.text_note_change)
 
-        if (addHeaderNote.text.isNullOrEmpty() || addTextNote.text.isNullOrEmpty()) {
+
+        if (binding.headerNote.text.isNullOrEmpty() && binding.textNoteChange.text.isNullOrEmpty()) {
             setResult(RESULT_CANCELED)
 
         } else {
-            val note = Note(addHeaderNote.text.toString(), addTextNote.text.toString())
-            val editIntent = Intent().apply {
-                putExtra("Note", note)
-            }
-            setResult(RESULT_OK, editIntent)
+
+            setResult(RESULT_OK, Intent().apply {
+                putExtra("Note", Note(binding.headerNote.text.toString(), binding.textNoteChange.text.toString()))
+            })
+            finish()
         }
-        finish()
+
     }
 }

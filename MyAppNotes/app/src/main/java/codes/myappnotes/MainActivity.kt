@@ -21,7 +21,6 @@ class MainActivity: AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         init()
@@ -37,9 +36,9 @@ class MainActivity: AppCompatActivity() {
         super.onResume()
         when (dataBaseManager.readDataDB().size) {
             0 -> {
-                findViewById<TextView>(R.id.textView2).text = "Пусто"
+                binding.textView2.text = "Пусто"
             } else -> {
-                findViewById<TextView>(R.id.textView2).text = ""
+                binding.textView2.text = ""
             }
         }
         for (i in dataBaseManager.readDataDB()) {
@@ -50,10 +49,10 @@ class MainActivity: AppCompatActivity() {
     @SuppressLint("CutPasteId")
     private fun init() {
         apply {
-            findViewById<RecyclerView>(R.id.recyclerView).layoutManager = GridLayoutManager(this@MainActivity, 1)
-            findViewById<RecyclerView>(R.id.recyclerView).adapter = adapter
+            binding.recyclerView.layoutManager = GridLayoutManager(this@MainActivity, 1)
+            binding.recyclerView.adapter = adapter
 
-            findViewById<FloatingActionButton>(R.id.floatingActionButton).setOnClickListener {
+            binding.floatingActionButton.setOnClickListener {
                 editlaunch?.launch(Intent(this@MainActivity, AddNoteActivity::class.java))
             }
         }

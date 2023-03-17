@@ -1,4 +1,4 @@
-package project.ProductsAndService
+package project.productsandservice
 
 import org.junit.Test
 

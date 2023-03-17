@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">ProducstAndService</string>
+    <string name="app_name">Товары и Услуги</string>
+    <string name="home">Главная</string>
+    <string name="chats">Чаты</string>
+    <string name="chat">Чаты</string>
+    <string name="notification">Уведомления</string>
+    <string name="profile">Профиль</string>
 </resources>

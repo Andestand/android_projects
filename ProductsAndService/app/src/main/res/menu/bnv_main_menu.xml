@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bottomNavigationHome"
+        android:title="@string/home"
+        android:icon="@drawable/home"
+    />
+
+    <item android:id="@+id/bottomNavigationChats"
+        android:icon="@drawable/chats"
+        android:title="@string/chats"
+    />
+
+    <item android:id="@+id/bottomNavigationNotification"
+        android:icon="@drawable/notification"
+        android:title="@string/notification"
+    />
+    <item android:id="@+id/bottomNavigationProfile"
+        android:icon="@drawable/profile"
+        android:title="@string/profile"
+        />
+</menu>

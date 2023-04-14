@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="array">
+        <item>Рубль</item>
+        <item>Доллар</item>
+        <item>Евро</item>
+        <item>Тенге</item>
+    </string-array>
+</resources>

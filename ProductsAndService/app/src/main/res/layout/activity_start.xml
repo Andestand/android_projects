@@ -4,20 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.FragmentHome">
+    tools:context=".ui.start.StartActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/AppBarLayoutHome"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <androidx.appcompat.widget.Toolbar
+        <Button
+            android:id="@+id/buttonRegister"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:theme="@style/ToolBarStyle"
-            app:title="@string/home" />
-    </com.google.android.material.appbar.AppBarLayout>
+            android:layout_height="60dp"
+            android:text="@string/register"
+            app:cornerRadius="15dp" />
+
+        <Button
+            android:id="@+id/buttonAuth"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="@string/auth"
+            app:cornerRadius="15dp" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

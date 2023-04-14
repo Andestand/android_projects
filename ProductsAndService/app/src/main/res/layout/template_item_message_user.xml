@@ -8,6 +8,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:theme="@style/MessageUserItemStyle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -53,7 +54,9 @@
                         android:layout_marginStart="5dp"
                         android:layout_marginBottom="5dp"
                         android:layout_weight="1"
-                        android:textColor="@color/black" />
+                        android:text="user"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/message"

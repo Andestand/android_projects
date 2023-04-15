@@ -1,11 +1,9 @@
 package project.productsandservice.ui.main
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import project.productsandservice.databinding.ActivityMainBinding
-import project.productsandservice.ui.createAdvert.CreateAdvertActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -18,12 +16,11 @@ class MainActivity : AppCompatActivity() {
         mainViewModel = ViewModelProvider(
             this
         )[MainViewModel::class.java]
-        /*startActivity(
-            Intent(
-                this@MainActivity,
-                CreateAdvertActivity::class.java
-            )
-        )*/
+
         mainViewModel.bottomNavigationView(binding, supportFragmentManager)
+        mainViewModel.navView(
+            context = applicationContext,
+            binding = binding
+        )
     }
 }

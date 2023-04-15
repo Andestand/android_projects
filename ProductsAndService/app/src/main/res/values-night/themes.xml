@@ -42,4 +42,9 @@
     <style name="AdvertStyle">
         <item name="android:textColor">@color/white</item>
     </style>
+
+    <style name="tabLayoutStyle">
+        <item name="tabIndicatorColor">@color/white</item>
+        <item name="tabTextColor">@color/white</item>
+    </style>
 </resources>

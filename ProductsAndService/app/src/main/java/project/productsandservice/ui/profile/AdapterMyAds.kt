@@ -21,11 +21,9 @@ class AdapterMyAds: RecyclerView.Adapter<AdapterMyAds.ViewHolder>() {
     class ViewHolder(item: View): RecyclerView.ViewHolder(item){
         private val binding = TemplateItemAdBinding.bind(item)
 
-
-
         fun bind(ad: Advert) = with(binding) {
             titleAd.text = ad.title
-            Glide.with(itemView.context).load(ad.media_file).into(imageAd)
+            Glide.with(itemView.context).load(ad.media_file[0]).into(imageAd)
             PriceTextView.text = ad.price
             DataTimeTextView.text = ad.date_added
         }
@@ -51,7 +49,10 @@ class AdapterMyAds: RecyclerView.Adapter<AdapterMyAds.ViewHolder>() {
         //}
 
         holder.itemView.setOnClickListener {
-            holder.itemView.context.startActivity(Intent(holder.itemView.context, AdvertActivity::class.java).apply {
+            holder.itemView.context.startActivity(
+                Intent(
+                    holder.itemView.context, AdvertActivity::class.java
+                ).apply {
                 putExtra("ad",
                     Advert(
                         title = array[position].title,
@@ -59,10 +60,11 @@ class AdapterMyAds: RecyclerView.Adapter<AdapterMyAds.ViewHolder>() {
                         price = array[position].price,
                         media_file = array[position].media_file,
                         date_added = array[position].date_added,
-                        author_advert = ""
+                        author_advert = array[position].author_advert
                     ) as Parcelable
                 )
-            })
+            }
+            )
         }
     }
 

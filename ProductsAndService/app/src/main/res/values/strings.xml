@@ -30,4 +30,6 @@
     <string name="price">Цена</string>
     <string name="add_image">Добавить изображения</string>
     <string name="input_messages">Введите сообщение</string>
+    <string name="active_adverts">Активные объявлений</string>
+    <string name="announcement_archive">Архив объявлений</string>
 </resources>

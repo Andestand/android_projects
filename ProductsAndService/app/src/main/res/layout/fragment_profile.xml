@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.FragmentProfile" >
+    android:elevation="-1dp"
+    tools:context=".ui.profile.FragmentProfile">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayoutProfile"
@@ -20,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?attr/actionBarSize"
-            android:theme="@style/ToolBarStyle"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -43,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:theme="@style/CardDataProfileStyle"
             app:cardCornerRadius="35dp">
 
             <LinearLayout

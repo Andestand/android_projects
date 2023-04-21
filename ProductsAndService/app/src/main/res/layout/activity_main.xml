@@ -10,10 +10,12 @@
         android:id="@+id/drawerLayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:elevation="10dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/fragmentContainerView"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck">
 
         <com.google.android.material.navigation.NavigationView
@@ -22,6 +24,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="start"
             app:menu="@menu/nv_main_items" />
+
     </androidx.drawerlayout.widget.DrawerLayout>
 
     <androidx.fragment.app.FragmentContainerView
@@ -29,7 +32,6 @@
         android:name="project.productsandservice.ui.home.FragmentHome"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:fitsSystemWindows="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,12 +40,12 @@
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentContainerView"
+        app:layout_constraintTop_toBottomOf="@id/fragmentContainerView"
         app:menu="@menu/bnv_main_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

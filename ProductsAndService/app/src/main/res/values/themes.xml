@@ -2,55 +2,19 @@
     <!-- Base application theme. -->
     <style name="Theme.ProductsAndService" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimary">@color/black</item>
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/blue</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/black_blue</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="itemIconTint">@color/black</item>
         <!-- Customize your theme here. -->
-    </style>
-
-    <style name="ToolBarStyle">
-        <item name="android:background">@color/white</item>
-        <item name="android:titleTextColor">@color/black</item>
-    </style>
-
-    <style name="MessageUserItemStyle">
         <item name="android:textColor">@color/black</item>
     </style>
-
-    <style name="MessageStyle">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="ToolBarChatStyle">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="InputMessageStyle">
-        <item name="android:background">#292929</item>
-        <item name="android:textColorHint">@color/white</item>
-    </style>
-
-    <style name="CardDataProfileStyle">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="AdvertStyle">
-        <item name="android:textColor">@color/black</item>
-    </style>
-
-    <style name="tabLayoutStyle">
-        <item name="tabIndicatorColor">@color/black</item>
-        <item name="tabTextColor">@color/black</item>
-    </style>
-    <style name="bottomNavStyle">
-        <item name="itemTextColor">@color/black</item>
-        <item name="itemIconTint">@color/black</item>
+    <style name="DefaultToolBarStyle">
+        <item name="background">@color/white</item>
     </style>
 </resources>

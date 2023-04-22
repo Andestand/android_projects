@@ -1,11 +1,13 @@
 package ru.project.examtest.domain.models;
 
 
-public class Terms {
+import java.io.Serializable;
+
+public class Term implements Serializable {
     private String title;
     private String description;
 
-    public Terms(
+    public Term(
             String title,
             String description
     ) {

@@ -1,13 +1,16 @@
-package ru.project.examtest.ui.theory;
+package ru.project.examtest.ui.theorys;
 
+import ru.project.examtest.databinding.ItemTheoryBinding;
+import ru.project.examtest.ui.theory.TheoryActivity;
+import androidx.recyclerview.widget.RecyclerView;
+import ru.project.examtest.domain.models.Theory;
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.ViewGroup;
+import android.content.Intent;
 import java.util.ArrayList;
-import ru.project.examtest.databinding.ItemTheoryBinding;
-import ru.project.examtest.domain.models.Theory;
+import android.view.View;
 
 public class AdapterTheory extends RecyclerView.Adapter<AdapterTheory.HolderView> {
     ArrayList<Theory> array = new ArrayList<>();
@@ -23,7 +26,7 @@ public class AdapterTheory extends RecyclerView.Adapter<AdapterTheory.HolderView
         }
 
         public void bind(Theory theory) {
-            binding.textView3.setText(theory.getText());
+            binding.textView.setText(theory.getText());
         }
     }
 
@@ -38,8 +41,20 @@ public class AdapterTheory extends RecyclerView.Adapter<AdapterTheory.HolderView
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HolderView holder, int position) {
+    public void onBindViewHolder(@NonNull HolderView holder, @SuppressLint("RecyclerView") int position) {
         holder.bind(array.get(position));
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.itemView.getContext().startActivity(
+                        new Intent(
+                                holder.itemView.getContext(),
+                                TheoryActivity.class
+                        ).putExtra("theory", array.get(position))
+                );
+            }
+        });
     }
 
     @Override

@@ -1,6 +1,8 @@
 package ru.project.examtest.domain.models;
 
-public class Theory {
+import java.io.Serializable;
+
+public class Theory implements Serializable {
     private String text;
 
     public Theory(

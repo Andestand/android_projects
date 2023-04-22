@@ -4,28 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.terms.TermsActivity">
+    tools:context=".ui.theorys.TheorysActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbarTerms"
+        android:id="@+id/toolbarTheory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
-        app:layout_constraintBottom_toTopOf="@+id/rv_terms"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/terms"
+        app:title="@string/theory"
         app:titleTextColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_terms"
+        android:id="@+id/rv_theory"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbarTerms" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTheory" />
 </androidx.constraintlayout.widget.ConstraintLayout>

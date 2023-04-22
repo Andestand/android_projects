@@ -1,17 +1,18 @@
-package ru.project.examtest.ui.terms;
+package ru.project.examtest.ui.theorys;
 
 import ru.project.examtest.data.db.MyRoomManager;
-import ru.project.examtest.databinding.ActivityTermsBinding;
+import ru.project.examtest.databinding.ActivityTheorysBinding;
 import androidx.recyclerview.widget.GridLayoutManager;
+import ru.project.examtest.domain.models.Theory;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
-import ru.project.examtest.domain.models.Term;
-import ru.project.examtest.arrays.TermArrays;
+
+import ru.project.examtest.arrays.TheoryArrays;
 import android.os.Bundle;
 
-public class TermsActivity extends AppCompatActivity {
-    protected ActivityTermsBinding binding;
-    private final AdapterTerms adapter = new AdapterTerms();
+public class TheorysActivity extends AppCompatActivity {
+    protected ActivityTheorysBinding binding;
+    private final AdapterTheory adapter = new AdapterTheory();
     MyRoomManager mrm = Room.databaseBuilder(
             getApplicationContext(),
             MyRoomManager.class,
@@ -21,25 +22,25 @@ public class TermsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityTermsBinding.inflate(getLayoutInflater());
+        binding = ActivityTheorysBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         init();
-
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        for (Term i: TermArrays.array) {
-            adapter.addTerm(i);
+        for (Theory i: TheoryArrays.array) {
+            adapter.addTheory(i);
         }
     }
 
     private void init() {
-        binding.rvTerms.setLayoutManager(
+        binding.rvTheory.setLayoutManager(
                 new GridLayoutManager(getApplicationContext(), 1)
         );
 
-        binding.rvTerms.setAdapter(adapter);
+        binding.rvTheory.setAdapter(adapter);
+
     }
 }

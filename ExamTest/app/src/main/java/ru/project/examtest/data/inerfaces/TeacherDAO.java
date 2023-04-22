@@ -1,13 +1,8 @@
 package ru.project.examtest.data.inerfaces;
 
-import androidx.room.Dao;
-import androidx.room.Delete;
-import androidx.room.Insert;
-import androidx.room.Query;
-
+import androidx.room.*;
 import java.util.List;
-
-import ru.project.examtest.data.models.RoomTeacher;
+import ru.project.examtest.data.models.*;
 
 @Dao
 public interface TeacherDAO {

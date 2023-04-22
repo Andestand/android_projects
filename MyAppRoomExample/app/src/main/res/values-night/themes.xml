@@ -12,5 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style parent="Widget.Design.BottomSheet.Modal" name="BottomSheetFragmentStyle">
+        <item name="android:background">@drawable/background_bottom_sheet</item>
+    </style>
+
+    <style parent="Theme.Design.Light.BottomSheetDialog" name="AppBottomSheetDialogTheme">
+        <item name="bottomSheetStyle">@style/BottomSheetFragmentStyle</item>
     </style>
 </resources>

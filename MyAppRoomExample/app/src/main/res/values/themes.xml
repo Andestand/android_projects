@@ -2,8 +2,8 @@
     <!-- Base application theme. -->
     <style name="Theme.MyAppRoomExample" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimary">#006BEE</item>
+        <item name="colorPrimaryVariant">#034BA3</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
@@ -12,5 +12,14 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style parent="Widget.Design.BottomSheet.Modal" name="BottomSheetFragmentStyle">
+        <item name="android:background">@drawable/background_bottom_sheet</item>
+    </style>
+
+    <style parent="Theme.Design.Light.BottomSheetDialog" name="AppBottomSheetDialogTheme">
+        <item name="bottomSheetStyle">@style/BottomSheetFragmentStyle</item>
     </style>
 </resources>

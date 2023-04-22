@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">ExamTest</string>
+    <string name="theory">Теория</string>
+    <string name="tables_and_diagrams">Таблицы и схемы</string>
+    <string name="terms">Термины</string>
+    <string name="basic_formulas">Основные формулы</string>
+    <string name="tasks_by_topic">Задания по темам</string>
+    <string name="blitz_test">Блиц тест</string>
+    <string name="OGE_test_b">Тест ОГЭ #Б</string>
+    <string name="OGE_test_p">Тест ОГЭ #П</string>
+    <string name="point_calculator">Калькулятор баллов</string>
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
+    <string name="auth">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="authirization">Авторизация</string>
+</resources>

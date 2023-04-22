@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyAppRoomExample</string>
+    <string name="writeUser">Добавить пользователя</string>
+    <string name="readUser">Получить данные пользователей</string>
+    <string name="add">Добавить</string>
+    <string name="username">Имя пользователя</string>
+    <string name="password">Пароль</string>
 </resources>

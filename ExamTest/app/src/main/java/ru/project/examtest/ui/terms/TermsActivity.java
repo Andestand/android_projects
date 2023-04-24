@@ -8,15 +8,16 @@ import androidx.room.Room;
 import ru.project.examtest.domain.models.Term;
 import ru.project.examtest.arrays.TermArrays;
 import android.os.Bundle;
+import android.view.View;
 
 public class TermsActivity extends AppCompatActivity {
     protected ActivityTermsBinding binding;
     private final AdapterTerms adapter = new AdapterTerms();
-    MyRoomManager mrm = Room.databaseBuilder(
-            getApplicationContext(),
+    /*MyRoomManager mrm = Room.databaseBuilder(
+            this,
             MyRoomManager.class,
             "database"
-    ).build();
+    ).build();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,12 @@ public class TermsActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
         init();
 
+        binding.toolbarTerms.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

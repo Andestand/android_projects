@@ -12,7 +12,7 @@ import ru.project.examtest.databinding.ItemTermBinding;
 import ru.project.examtest.domain.models.Term;
 import ru.project.examtest.ui.term.TermActivity;
 
-public class AdapterTerms extends RecyclerView.Adapter<AdapterTerms.HolderView> {
+public class    AdapterTerms extends RecyclerView.Adapter<AdapterTerms.HolderView> {
     ArrayList<Term> array = new ArrayList<>();
 
     public static class HolderView extends RecyclerView.ViewHolder {

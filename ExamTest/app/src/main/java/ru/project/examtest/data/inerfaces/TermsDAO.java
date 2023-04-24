@@ -9,14 +9,14 @@ public interface TermsDAO {
     @Query("SELECT * FROM terms")
     List<RoomTerms> TermsAll();
 
-    @Query("SELECT * FROM terms WHERE id IN (:id)")
-    List<RoomTerms> TermById(int[] id);
+    @Query("SELECT * FROM terms WHERE id IN (:arg0)")
+    List<RoomTerms> TermById(int[] arg0);
 
-    @Query("SELECT * FROM terms WHERE title IN (:title)")
-    List<RoomTerms> TermByTitle(String[] title);
+    @Query("SELECT * FROM terms WHERE title IN (:arg1)")
+    List<RoomTerms> TermByTitle(String[] arg1);
 
-    @Query("SELECT * FROM terms WHERE description IN (:description)")
-    List<RoomTerms> TermByDescription(String[] description);
+    @Query("SELECT * FROM terms WHERE description IN (:arg2)")
+    List<RoomTerms> TermByDescription(String[] arg2);
 
     @Insert
     void AddTerm(RoomTerms... term);

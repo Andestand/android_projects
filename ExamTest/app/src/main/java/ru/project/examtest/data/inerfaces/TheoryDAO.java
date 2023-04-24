@@ -10,11 +10,11 @@ public interface TheoryDAO {
     @Query("SELECT * FROM theorys")
     List<RoomTheory> getTheoryAll();
 
-    @Query("SELECT * FROM theorys WHERE id IN (:id)")
-    List<RoomTheory> TheoryById(int[] id);
+    @Query("SELECT * FROM theorys WHERE id IN (:arg0)")
+    List<RoomTheory> TheoryById(int[] arg0);
 
-    @Query("SELECT * FROM theorys WHERE text IN (:text)")
-    List<RoomTeacher> TeacherByUsername(String[] text);
+    @Query("SELECT * FROM theorys WHERE text IN (:arg1)")
+    List<RoomTeacher> TeacherByUsername(String[] arg1);
 
     @Insert
     void AddTheory(RoomTheory... theory);

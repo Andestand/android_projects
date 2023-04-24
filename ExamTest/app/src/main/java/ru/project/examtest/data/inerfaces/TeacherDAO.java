@@ -9,14 +9,14 @@ public interface TeacherDAO {
     @Query("SELECT * FROM teachers")
     List<RoomTeacher> teachersAll();
 
-    @Query("SELECT * FROM teachers WHERE id IN (:id)")
-    List<RoomTeacher> TeacherById(int[] id);
+    @Query("SELECT * FROM teachers WHERE id IN (:arg0)")
+    List<RoomTeacher> TeacherById(int[] arg0);
 
-    @Query("SELECT * FROM teachers WHERE username IN (:username)")
-    List<RoomTeacher> TeacherByUsername(String[] username);
+    @Query("SELECT * FROM teachers WHERE username IN (:arg1)")
+    List<RoomTeacher> TeacherByUsername(String[] arg1);
 
-    @Query("SELECT * FROM teachers WHERE password IN (:password)")
-    List<RoomTeacher> TeacherByPassword(String[] password);
+    @Query("SELECT * FROM teachers WHERE password IN (:arg2)")
+    List<RoomTeacher> TeacherByPassword(String[] arg2);
 
     @Insert
     void AddTeacher(RoomTeacher... teacher);

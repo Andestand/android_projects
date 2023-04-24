@@ -8,16 +8,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
 import ru.project.examtest.arrays.TheoryArrays;
+
+import android.app.Application;
 import android.os.Bundle;
+import android.view.View;
 
 public class TheorysActivity extends AppCompatActivity {
     protected ActivityTheorysBinding binding;
     private final AdapterTheory adapter = new AdapterTheory();
-    MyRoomManager mrm = Room.databaseBuilder(
-            getApplicationContext(),
+    /*MyRoomManager mrm = Room.databaseBuilder(
+            this,
             MyRoomManager.class,
             "database"
-    ).build();
+    ).build();*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +28,13 @@ public class TheorysActivity extends AppCompatActivity {
         binding = ActivityTheorysBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         init();
+
+        binding.toolbarTheory.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override

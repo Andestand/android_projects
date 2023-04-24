@@ -8,6 +8,11 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 import ru.project.examtest.databinding.ActivityMainBinding;
+import ru.project.examtest.ui.basic_formulas.BasicFormulasActivity;
+import ru.project.examtest.ui.blitz_test.BlitzTestActivity;
+import ru.project.examtest.ui.point_calculator.PointCalculatorActivity;
+import ru.project.examtest.ui.tables_and_diagrams.TablesAndDiagramsActivity;
+import ru.project.examtest.ui.tasks_by_topic.TasksByTopicActivity;
 import ru.project.examtest.ui.terms.TermsActivity;
 import ru.project.examtest.ui.theorys.TheorysActivity;
 
@@ -37,10 +42,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case "Таблицы и схемы":
-                        Toast.makeText(
-                                getApplicationContext(),
-                                "Таблицы и схемы", Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(
+                                new Intent(
+                                        getApplicationContext(),
+                                        TablesAndDiagramsActivity.class
+                                )
+                        );
                         break;
 
                     case "Термины":
@@ -53,24 +60,30 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case "Основные формулы":
-                        Toast.makeText(
-                                getApplicationContext(),
-                                "Основные формулы", Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(
+                                new Intent(
+                                        getApplicationContext(),
+                                        BasicFormulasActivity.class
+                                )
+                        );
                         break;
 
                     case "Задания по темам":
-                        Toast.makeText(
-                                getApplicationContext(),
-                                "Задания по темам", Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(
+                                new Intent(
+                                        getApplicationContext(),
+                                        TasksByTopicActivity.class
+                                )
+                        );
                         break;
 
                     case "Блиц тест":
-                        Toast.makeText(
-                                getApplicationContext(),
-                                "Блиц тест", Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(
+                                new Intent(
+                                        getApplicationContext(),
+                                        BlitzTestActivity.class
+                                )
+                        );
                         break;
 
                     case "Тест ОГЭ #Б":
@@ -88,10 +101,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case "Калькулятор баллов":
-                        Toast.makeText(
-                                getApplicationContext(),
-                                "Калькулятор баллов", Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(
+                                new Intent(
+                                        getApplicationContext(),
+                                        PointCalculatorActivity.class
+                                )
+                        );
                         break;
 
                 }

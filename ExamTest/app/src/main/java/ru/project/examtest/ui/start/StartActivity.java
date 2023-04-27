@@ -7,8 +7,10 @@ import android.os.Bundle;
 import android.view.View;
 
 import ru.project.examtest.databinding.ActivityStartBinding;
+import ru.project.examtest.ui.admin.AdminActivity;
 import ru.project.examtest.ui.main.MainActivity;
 import ru.project.examtest.databinding.RegisterAdminBinding;
+import ru.project.examtest.ui.selections_click_buttons.ra_bottomFragStudent;
 import ru.project.examtest.ui.selections_click_buttons.reg_auth_BottomFragment;
 
 public class StartActivity extends AppCompatActivity {
@@ -28,12 +30,14 @@ public class StartActivity extends AppCompatActivity {
         binding.studentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(
+                new ra_bottomFragStudent().show(getSupportFragmentManager(), "ra");
+
+                /*startActivity(
                         new Intent(
-                        getApplicationContext(),
-                        MainActivity.class
-                )
-                );
+                                getApplicationContext(),
+                                MainActivity.class
+                        )
+                );*/
             }
         });
 
@@ -41,6 +45,12 @@ public class StartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 new reg_auth_BottomFragment().show(getSupportFragmentManager(), "auth");
+                /*startActivity(
+                        new Intent(
+                                getApplicationContext(),
+                                AdminActivity.class
+                        )
+                );*/
             }
         });
 

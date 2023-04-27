@@ -10,14 +10,6 @@
         android:title="@string/tables_and_diagrams"
         />
     <item
-        android:id="@+id/terms"
-        android:title="@string/terms"
-        />
-    <item
-        android:id="@+id/basic_formulas"
-        android:title="@string/basic_formulas"
-        />
-    <item
         android:id="@+id/tasks_by_topic"
         android:title="@string/tasks_by_topic"
         />

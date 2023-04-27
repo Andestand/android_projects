@@ -1,5 +1,7 @@
 package ru.project.examtest.ui.theorys;
 
+import ru.project.examtest.data.db.MyRoomManager;
+import ru.project.examtest.data.models.RoomTheory;
 import ru.project.examtest.databinding.ItemTheoryBinding;
 import ru.project.examtest.ui.theory.TheoryActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -7,13 +9,15 @@ import ru.project.examtest.domain.models.Theory;
 import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import androidx.annotation.NonNull;
+import androidx.room.Room;
+
 import android.view.ViewGroup;
 import android.content.Intent;
 import java.util.ArrayList;
 import android.view.View;
 
 public class AdapterTheory extends RecyclerView.Adapter<AdapterTheory.HolderView> {
-    ArrayList<Theory> array = new ArrayList<>();
+    ArrayList<RoomTheory> array = new ArrayList<>();
 
     public static class HolderView extends RecyclerView.ViewHolder {
         ItemTheoryBinding binding;
@@ -23,9 +27,11 @@ public class AdapterTheory extends RecyclerView.Adapter<AdapterTheory.HolderView
         ) {
             super(binding.getRoot());
             this.binding = binding;
+
         }
 
-        public void bind(Theory theory) {
+
+        public void bind(RoomTheory theory) {
             binding.textView.setText(theory.getText());
         }
     }
@@ -63,7 +69,7 @@ public class AdapterTheory extends RecyclerView.Adapter<AdapterTheory.HolderView
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void addTheory(Theory theory) {
+    public void addTheory(RoomTheory theory) {
         array.remove(theory);
         array.add(theory);
         notifyDataSetChanged();

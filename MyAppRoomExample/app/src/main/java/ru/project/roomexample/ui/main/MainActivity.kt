@@ -2,8 +2,11 @@ package ru.project.roomexample.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.room.Room
 import ru.project.roomexample.data.models.UserRoom
+import ru.project.roomexample.data.room.MyRoomManager
 import ru.project.roomexample.databinding.ActivityMainBinding
 import ru.project.roomexample.ui.registerUser.AddUserBottomSheetFragment
 

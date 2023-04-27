@@ -7,16 +7,26 @@
     tools:context=".ui.tasks_by_topic.TasksByTopicActivity">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar6"
+        android:id="@+id/toolbarTBT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/rv_tbt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/actionModeCloseDrawable"
         app:title="@string/tasks_by_topic"
         app:titleTextColor="@color/white" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_tbt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarTBT" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,11 +4,13 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 @Entity(
         tableName = "terms"
 )
-public class RoomTerms {
-    @PrimaryKey
+public class RoomTerms implements Serializable {
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
     @ColumnInfo(name = "title")
@@ -23,5 +25,13 @@ public class RoomTerms {
     ) {
         this.title = title;
         this.description = description;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

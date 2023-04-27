@@ -3,27 +3,41 @@ package ru.project.examtest.data.models;
 import androidx.room.*;
 import java.io.Serializable;
 
+
 @Entity(
         tableName = "basic_formulas"
 )
 public class RoomBasicFormula implements Serializable {
-    @PrimaryKey
+    @PrimaryKey(autoGenerate = true)
     public int id;
 
-    @ColumnInfo(name = "text")
-    public String text;
+    @ColumnInfo(name = "formula")
+    public String formula;
+
+    @ColumnInfo(name = "description")
+    public String description;
 
     public RoomBasicFormula(
-            String text
+            String formula,
+            String description
     ) {
-        this.text = text;
+        this.formula = formula;
+        this.description = description;
     }
 
-    public String getText() {
-        return text;
+    public String getFormula() {
+        return formula;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setFormula(String formula) {
+        this.formula = formula;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

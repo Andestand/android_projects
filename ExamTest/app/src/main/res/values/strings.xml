@@ -18,4 +18,11 @@
     <string name="term">Термин</string>
     <string name="title">Название</string>
     <string name="description">Описание</string>
+    <string name="formula">Формула</string>
+    <string name="tables">Таблицы</string>
+    <string name="diagrams">Схемы</string>
+    <string name="task">Задание</string>
+    <string name="video">Видео</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

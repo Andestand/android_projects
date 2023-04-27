@@ -6,7 +6,7 @@ import androidx.room.*
     tableName = "users"
 )
 data class UserRoom(
-    @PrimaryKey var id: Int,
+    @PrimaryKey var id: Int? = null,
 
     @ColumnInfo(
         name = "username"

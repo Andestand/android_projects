@@ -37,6 +37,7 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:gravity="center"
@@ -56,6 +57,7 @@
             app:boxStrokeWidthFocused="0dp">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="65dp"
                 android:gravity="center"
@@ -63,7 +65,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/AddButton"
             android:layout_width="match_parent"
             android:layout_height="65dp"
             android:layout_marginTop="5dp"

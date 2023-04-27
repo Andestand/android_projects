@@ -22,8 +22,8 @@ public class AdapterBasicFormulas extends RecyclerView.Adapter<AdapterBasicFormu
             this.binding = binding;
         }
 
-        public void bind(RoomBasicFormula theory) {
-            binding.text.setText(theory.getText());
+        public void bind(RoomBasicFormula basic_formula) {
+            binding.formula.setText(basic_formula.getFormula());
         }
     }
 

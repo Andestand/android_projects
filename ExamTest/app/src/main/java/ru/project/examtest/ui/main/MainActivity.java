@@ -8,12 +8,10 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 import ru.project.examtest.databinding.ActivityMainBinding;
-import ru.project.examtest.ui.basic_formulas.BasicFormulasActivity;
 import ru.project.examtest.ui.blitz_test.BlitzTestActivity;
 import ru.project.examtest.ui.point_calculator.PointCalculatorActivity;
 import ru.project.examtest.ui.tables_and_diagrams.TablesAndDiagramsActivity;
 import ru.project.examtest.ui.tasks_by_topic.TasksByTopicActivity;
-import ru.project.examtest.ui.terms.TermsActivity;
 import ru.project.examtest.ui.theorys.TheorysActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -46,24 +44,6 @@ public class MainActivity extends AppCompatActivity {
                                 new Intent(
                                         getApplicationContext(),
                                         TablesAndDiagramsActivity.class
-                                )
-                        );
-                        break;
-
-                    case "Термины":
-                        startActivity(
-                                new Intent(
-                                        getApplicationContext(),
-                                        TermsActivity.class
-                                )
-                        );
-                        break;
-
-                    case "Основные формулы":
-                        startActivity(
-                                new Intent(
-                                        getApplicationContext(),
-                                        BasicFormulasActivity.class
                                 )
                         );
                         break;

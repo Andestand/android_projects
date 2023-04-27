@@ -8,12 +8,14 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
+
+import ru.project.examtest.data.models.RoomTerms;
 import ru.project.examtest.databinding.ItemTermBinding;
 import ru.project.examtest.domain.models.Term;
 import ru.project.examtest.ui.term.TermActivity;
 
-public class    AdapterTerms extends RecyclerView.Adapter<AdapterTerms.HolderView> {
-    ArrayList<Term> array = new ArrayList<>();
+public class AdapterTerms extends RecyclerView.Adapter<AdapterTerms.HolderView> {
+    ArrayList<RoomTerms> array = new ArrayList<>();
 
     public static class HolderView extends RecyclerView.ViewHolder {
         ItemTermBinding binding;
@@ -25,7 +27,7 @@ public class    AdapterTerms extends RecyclerView.Adapter<AdapterTerms.HolderVie
             this.binding = binding;
         }
 
-        public void bind(Term term) {
+        public void bind(RoomTerms term) {
             binding.title.setText(term.getTitle());
         }
     }
@@ -64,7 +66,7 @@ public class    AdapterTerms extends RecyclerView.Adapter<AdapterTerms.HolderVie
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    public void addTerm(Term term) {
+    public void addTerm(RoomTerms term) {
         array.remove(term);
         array.add(term);
         notifyDataSetChanged();

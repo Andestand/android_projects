@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">MyNotesMVP</string>
+    <string name="title">Название</string>
+    <string name="description">Описание</string>
+    <string name="date_publication">Дата публикации</string>
+    <string name="linkToImg">Ссылка на картинку</string>
+    <string name="addNote">Добавить заметку</string>
 </resources>

@@ -15,56 +15,65 @@
         android:theme="@style/Theme.ExamTest"
         tools:targetApi="31">
         <activity
-            android:name=".CreateTaskActivity"
+            android:name=".ui.OGE_test_p.TestP_Activity"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
+
+        <activity
+            android:name=".ui.tasks_by_topic.CreateTaskActivity"
+            android:exported="false">
+        </activity>
+
         <activity
             android:name=".ui.tables_and_diagrams.CreateTAD_Activity"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
+
         <activity
             android:name=".ui.theorys.CreateTheorysActivity"
             android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
         </activity>
+
         <activity
             android:name=".ui.tasks_by_topic.TaskActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.basic_formulas.BFPageActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.tasks_by_topic.TasksByTopicActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.tables_and_diagrams.TablesAndDiagramsActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.point_calculator.PointCalculatorActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.blitz_test.BlitzTestActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.theory.TheoryActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.term.TermActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.theorys.TheorysActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.admin.AdminActivity"
             android:exported="false" />
+
         <activity
             android:name=".ui.start.StartActivity"
             android:exported="true">
@@ -74,6 +83,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false" />

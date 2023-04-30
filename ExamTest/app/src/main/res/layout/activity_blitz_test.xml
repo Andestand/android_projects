@@ -10,13 +10,11 @@
         android:id="@+id/toolbar4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:navigationIcon="?attr/actionModeCloseDrawable"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/blitz_test"
-        app:titleTextColor="@color/white" />
+        app:navigationIcon="?attr/actionModeCloseDrawable"
+        app:title="@string/blitz_test" />
 </androidx.constraintlayout.widget.ConstraintLayout>

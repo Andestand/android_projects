@@ -13,18 +13,17 @@
         android:id="@+id/tasks_by_topic"
         android:title="@string/tasks_by_topic"
         />
-    <item
-        android:id="@+id/blitz_test"
-        android:title="@string/blitz_test"
-        />
-    <item
-        android:id="@+id/OGE_test_b"
-        android:title="@string/OGE_test_b"
-        />
-    <item
-        android:id="@+id/OGE_test_p"
-        android:title="@string/OGE_test_p"
-        />
+    <!-- <item
+         android:id="@+id/blitz_test"
+         android:title="@string/blitz_test"
+         />
+     <item
+         android:id="@+id/OGE_test_b"
+         android:title="@string/OGE_test_b"
+            <item
+         android:id="@+id/OGE_test_p"
+         android:title="@string/OGE_test_p"
+         /> -->
     <item
         android:id="@+id/point_calculator"
         android:title="@string/point_calculator"

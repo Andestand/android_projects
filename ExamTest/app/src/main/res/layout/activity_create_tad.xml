@@ -11,7 +11,6 @@
       android:id="@+id/toolbarTAD"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:background="?attr/colorPrimary"
       android:minHeight="?attr/actionBarSize"
       android:theme="?attr/actionBarTheme"
       app:layout_constraintBottom_toTopOf="@+id/tabLayout"
@@ -19,8 +18,7 @@
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:navigationIcon="?attr/actionModeCloseDrawable"
-      app:title="Таблица или диаграмма"
-      app:titleTextColor="@color/white" />
+      app:title="Таблица или диаграмма" />
 
   <com.google.android.material.tabs.TabLayout
       android:id="@+id/tabLayout"

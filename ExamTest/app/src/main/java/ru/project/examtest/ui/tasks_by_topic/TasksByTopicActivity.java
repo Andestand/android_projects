@@ -7,7 +7,6 @@ import androidx.room.Room;
 import android.os.Bundle;
 import android.view.View;
 
-import ru.project.examtest.arrays.TasksArrays;
 import ru.project.examtest.data.db.MyRoomManager;
 import ru.project.examtest.data.models.RoomTasks;
 import ru.project.examtest.databinding.ActivityTasksByTopicBinding;
@@ -37,15 +36,7 @@ public class TasksByTopicActivity extends AppCompatActivity {
                 "database"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build();
 
-        /*for (RoomTasks i: db.tasksDAO().TaskAll()) {
-            adapter.addTasks(i);
-        }*/
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        for (RoomTasks i: TasksArrays.array) {
+        for (RoomTasks i: db.tasksDAO().TaskAll()) {
             adapter.addTasks(i);
         }
     }

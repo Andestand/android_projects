@@ -10,7 +10,6 @@
         android:id="@+id/toolbarTBT"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/rv_tbt"
@@ -18,8 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/actionModeCloseDrawable"
-        app:title="@string/tasks_by_topic"
-        app:titleTextColor="@color/white" />
+        app:title="@string/tasks_by_topic" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_tbt"

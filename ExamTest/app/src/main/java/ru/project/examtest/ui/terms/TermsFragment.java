@@ -10,7 +10,6 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import ru.project.examtest.arrays.TermArrays;
 import ru.project.examtest.data.db.MyRoomManager;
 import ru.project.examtest.data.models.RoomTerms;
 import ru.project.examtest.databinding.FragmentTermsBinding;

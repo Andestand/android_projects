@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.room.Room;
 
-import ru.project.examtest.arrays.BasicFormulasArrays;
 import ru.project.examtest.data.db.MyRoomManager;
 import ru.project.examtest.data.models.RoomBasicFormula;
 import ru.project.examtest.databinding.FragmentBasicFormulasBinding;

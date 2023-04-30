@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.widget.Toast;
 import com.google.android.material.navigation.NavigationView;
 import ru.project.examtest.databinding.ActivityMainBinding;
+import ru.project.examtest.ui.OGE_test_p.TestP_Activity;
 import ru.project.examtest.ui.blitz_test.BlitzTestActivity;
 import ru.project.examtest.ui.point_calculator.PointCalculatorActivity;
 import ru.project.examtest.ui.tables_and_diagrams.TablesAndDiagramsActivity;
@@ -74,10 +75,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
 
                     case "Тест ОГЭ #П":
-                        Toast.makeText(
-                                getApplicationContext(),
-                                "Тест ОГЭ #П", Toast.LENGTH_LONG
-                        ).show();
+                        startActivity(
+                                new Intent(
+                                        getApplicationContext(),
+                                        TestP_Activity.class
+                                )
+                        );
                         break;
 
                     case "Калькулятор баллов":

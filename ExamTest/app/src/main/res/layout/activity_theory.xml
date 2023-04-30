@@ -11,15 +11,13 @@
         android:id="@+id/toolbarTheory"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/actionModeCloseDrawable"
-        app:title="@string/theory"
-        app:titleTextColor="@color/white" />
+        app:title="@string/theory" />
 
     <TextView
         android:id="@+id/text"

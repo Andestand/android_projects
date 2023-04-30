@@ -10,7 +10,6 @@ import androidx.room.Room;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import ru.project.examtest.arrays.ImagesResArrays;
 import ru.project.examtest.data.db.MyRoomManager;
 import ru.project.examtest.data.models.RoomTables;
 import ru.project.examtest.databinding.FragmentTableBinding;

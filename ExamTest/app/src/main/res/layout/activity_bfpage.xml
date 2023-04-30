@@ -12,7 +12,6 @@
         android:id="@+id/toolbarFormula"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
@@ -20,8 +19,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="?attr/actionModeCloseDrawable"
-        app:title="@string/formula"
-        app:titleTextColor="@color/white" />
+        app:title="@string/formula" />
 
     <ScrollView
         android:id="@+id/scrollView3"

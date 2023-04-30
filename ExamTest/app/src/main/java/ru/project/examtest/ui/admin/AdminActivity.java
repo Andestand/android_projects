@@ -16,6 +16,7 @@ import ru.project.examtest.ui.blitz_test.BlitzTestActivity;
 import ru.project.examtest.ui.point_calculator.PointCalculatorActivity;
 import ru.project.examtest.ui.tables_and_diagrams.CreateTAD_Activity;
 import ru.project.examtest.ui.tables_and_diagrams.TablesAndDiagramsActivity;
+import ru.project.examtest.ui.tasks_by_topic.CreateTaskActivity;
 import ru.project.examtest.ui.tasks_by_topic.TasksByTopicActivity;
 import ru.project.examtest.ui.theorys.CreateTheorysActivity;
 import ru.project.examtest.ui.theorys.TheorysActivity;
@@ -64,7 +65,7 @@ public class AdminActivity extends AppCompatActivity {
                         startActivity(
                                 new Intent(
                                         getApplicationContext(),
-                                        TasksByTopicActivity.class
+                                        CreateTaskActivity.class
                                 )
                         );
                         break;

@@ -24,7 +24,6 @@
             android:text="Я учитель"
             android:textSize="17sp"
             android:textStyle="bold"
-            android:theme="@style/Theme.DefaultButtonStyle"
             app:cornerRadius="10dp" />
 
         <Button
@@ -34,7 +33,6 @@
             android:text="Я ученик"
             android:textSize="17sp"
             android:textStyle="bold"
-            android:theme="@style/Theme.DefaultButtonStyle"
             app:cornerRadius="10dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

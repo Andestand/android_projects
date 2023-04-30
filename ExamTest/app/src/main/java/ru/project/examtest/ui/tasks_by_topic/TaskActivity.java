@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.MediaController;
 
@@ -21,7 +22,7 @@ public class TaskActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityTaskBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
+        binding.link.setMovementMethod(LinkMovementMethod.getInstance());
         binding.toolbarTask.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -36,16 +37,7 @@ public class TaskActivity extends AppCompatActivity {
 
     public void setTask(RoomTasks tasks) {
         binding.title.setText(tasks.title);
-        MediaController mc = new MediaController(
-                getApplicationContext()
-        );
-        binding.vv.setMediaController(
-                mc
-        );
-        mc.setAnchorView(binding.vv);
-        //binding.vv.setVideoURI(Uri.parse(tasks.link));
-        binding.vv.setVideoPath("android:resource//"+getPackageName()+R.raw.video);
-        binding.vv.requestFocus(0);
-        binding.vv.start();
+        binding.link.setText(tasks.link);
+
     }
 }

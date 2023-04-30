@@ -12,7 +12,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import ru.project.examtest.arrays.TheoryArrays;
 import ru.project.examtest.data.db.MyRoomManager;
 import ru.project.examtest.data.models.RoomTheory;
 import ru.project.examtest.databinding.FragmentTheorysBinding;

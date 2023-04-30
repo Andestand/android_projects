@@ -13,7 +13,8 @@ import ru.project.examtest.data.models.*;
                 RoomBasicFormula.class,
                 RoomDiagrams.class,
                 RoomTables.class,
-                RoomTasks.class
+                RoomTasks.class,
+                RoomTestOgeP.class
         },
         version = 1
 )
@@ -26,4 +27,5 @@ public abstract class MyRoomManager extends RoomDatabase {
     public abstract DiagramsDAO diagramsDAO();
     public abstract TablesDAO tablesDAO();
     public abstract TasksDAO tasksDAO();
+    public abstract TestOgeP_DAO roomTestOgeP();
 }

@@ -78,14 +78,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="5dp"
-                    android:text="@string/video"
+                    android:text="Ссылка на видео материал"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
-                <VideoView
-                    android:id="@+id/vv"
+                <TextView
+                    android:autoLink="web"
+                    android:id="@+id/link"
                     android:layout_width="match_parent"
-                    android:layout_height="250dp" />
+                    android:layout_height="wrap_content"
+                    android:text="TextView" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>

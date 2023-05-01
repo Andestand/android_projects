@@ -31,10 +31,10 @@ class AddUserBottomSheetFragment: BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         db = Room.databaseBuilder(
-            context = view.context,
-            klass = MyRoomManager::class.java,
-            name = "database"
-        ).build()
+            view.context,
+            MyRoomManager::class.java,
+            "database"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
         binding.AddButton.setOnClickListener {
             //db.userDAO().insertAll(getUser())
         }

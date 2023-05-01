@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.room.Room
 import ru.project.roomexample.data.room.MyRoomManager
 
-class MainViewModel {
+class MainViewModel: ViewModel() {
     /*val db = Room.databaseBuilder(
         context = application,
         klass = MyRoomManager::class.java,

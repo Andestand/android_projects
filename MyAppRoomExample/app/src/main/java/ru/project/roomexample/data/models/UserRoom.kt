@@ -1,6 +1,7 @@
 package ru.project.roomexample.data.models
 
 import androidx.room.*
+import java.io.Serializable
 
 @Entity(
     tableName = "users"
@@ -12,9 +13,9 @@ data class UserRoom(
 
     @ColumnInfo(
         name = "username"
-    ) val username: String,
+    ) var username: String,
 
     @ColumnInfo(
         name = "password"
-    ) val password: String
-)
+    ) var password: String
+): Serializable

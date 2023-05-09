@@ -29,10 +29,7 @@ class MainActivity : AppCompatActivity() {
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
         binding.WriteDataButton.setOnClickListener {
-            ChangeUserBottomSheetFragment(UserRoom(
-                username = "user",
-                password = "666"
-            )).show(
+            AddUserBottomSheetFragment().show(
                 supportFragmentManager,
                 "writeUser"
             )

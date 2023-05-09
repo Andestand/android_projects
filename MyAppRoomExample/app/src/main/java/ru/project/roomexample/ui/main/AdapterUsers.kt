@@ -53,13 +53,13 @@ class AdapterUsers: ListAdapter<UserRoom, AdapterUsers.ViewHolder>(DiffCallback(
                         Toast.makeText(itemView.context, "Удаленно, обновите список свайпом вниз",
                             Toast.LENGTH_SHORT).show()
                     }
-                    R.id.change -> {
+                    /*R.id.change -> {
                         Intent(itemView.context, MainActivity::class.java).apply {
                             //putExtra("userData", user)
                             putExtra("isRequest", 50)
                         }
 
-                    }
+                    }*/
                 }
                 true
             }

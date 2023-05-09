@@ -43,7 +43,7 @@ class AddUserBottomSheetFragment: BottomSheetDialogFragment() {
             "database"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
         binding.AddButton.setOnClickListener {
-            if (isUser(getUser()) and !isUserEmpty()) {
+            if (!isUser(getUser()) and isUserEmpty()) {
                 db.userDAO().addUser(getUser())
                 Toast.makeText(view.context, "Пользователь создан", Toast.LENGTH_SHORT).show()
                 onStop()
@@ -52,7 +52,7 @@ class AddUserBottomSheetFragment: BottomSheetDialogFragment() {
                 Toast.makeText(view.context, "Пользователь не создан", Toast.LENGTH_SHORT).show()
             }
 
-            if (!isUserEmpty()) {
+            if (isUserEmpty()) {
                 binding.username.error = "Поле ввода ника пустое"
                 binding.password.error = "Поле ввода пароля пустое"
             }
@@ -66,11 +66,10 @@ class AddUserBottomSheetFragment: BottomSheetDialogFragment() {
     ) != null
 
     private fun isUserEmpty(): Boolean =
-        !binding.username.text?.isEmpty()!! and !binding.password.text?.isEmpty()!!
+        binding.username.text?.isEmpty()!! and binding.password.text?.isEmpty()!!
 
 
     private fun getUser(): UserRoom = UserRoom(
-
             username = binding.username.text.toString(),
             password = binding.password.text.toString()
     )

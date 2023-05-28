@@ -1,29 +1,34 @@
 package project.productsandservice.ui.chat
 
-import android.content.Context
-import androidx.lifecycle.ViewModel
-import androidx.recyclerview.widget.GridLayoutManager
-import project.productsandservice.data.api.MessageExchange
-import project.productsandservice.data.arrays.MessagesArray
 import project.productsandservice.databinding.ActivityChatBinding
-import project.productsandservice.databinding.ItemMessageBinding
+import project.productsandservice.data.arrays.MessagesArray
 import project.productsandservice.domain.models.Message
+import androidx.recyclerview.widget.GridLayoutManager
+import project.productsandservice.di.AppComponent
+import androidx.lifecycle.ViewModel
+import android.content.Context
+import project.productsandservice.data.api.MessageExchange
 import project.productsandservice.domain.usecase.GetDateTimeUseCase
+import project.productsandservice.domain.usecase.GetTextCurrencyInSymbolUseCase
+import javax.inject.Inject
 
-class ChatViewModel: ViewModel() {
-    private val adapter = ChatAdapter()
-    private val messageExchange = MessageExchange()
+class ChatViewModel@Inject constructor(): ViewModel() {
     private val getDateTimeUseCase = GetDateTimeUseCase()
+    private val adapterChat = ChatAdapter()
+    private val messageExchange = MessageExchange()
 
     fun initRV(
         context: Context,
         binding: ActivityChatBinding
     ) {
-        binding.rvChar.layoutManager = GridLayoutManager(context, 1)
-        binding.rvChar.adapter = adapter
+
+        binding.rvChar.apply {
+            adapter = adapterChat
+            layoutManager = GridLayoutManager(context, 1)
+        }
 
         for (i in MessagesArray.array) {
-            adapter.addMessage(
+            adapterChat.addMessage(
                 message = i
             )
         }
@@ -35,8 +40,9 @@ class ChatViewModel: ViewModel() {
 
     }
 
+    @Inject
     fun getMessage() {
-        adapter.addMessage(
+        adapterChat.addMessage(
             Message(
                 message = messageExchange.getMessage().message,
                 datetime = messageExchange.getMessage().datetime,
@@ -56,7 +62,7 @@ class ChatViewModel: ViewModel() {
                     type = 1
                 )
             )
-            adapter.addMessage(
+            adapterChat.addMessage(
                 Message(
                     message = binding.message.text.toString(),
                     datetime = getDateTimeUseCase.execute(),
@@ -65,6 +71,7 @@ class ChatViewModel: ViewModel() {
             )
         }
     }
+    
     fun isConnected(
         context: Context,
         binding: ActivityChatBinding

@@ -1,7 +1,7 @@
 package project.productsandservice.data.interfaces
 
-import project.productsandservice.data.models.Login
-import project.productsandservice.data.models.User
+import project.productsandservice.domain.models.Login
+import project.productsandservice.domain.models.User
 
 interface AuthDataBaseInterface {
 
@@ -15,5 +15,5 @@ interface AuthDataBaseInterface {
 
     fun deleteUser(user: User): Boolean
 
-    fun getUsers(): User
+    fun getUsers(): List<User>
 }

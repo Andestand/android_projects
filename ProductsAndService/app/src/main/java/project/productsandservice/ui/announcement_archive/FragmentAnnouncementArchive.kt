@@ -29,6 +29,10 @@ class FragmentAnnouncementArchive : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewModel = ViewModelProvider(this)[FragmentAnnouncementArchiveViewModel::class.java]
+        viewModel.initRV(
+            context = view.context,
+            binding = binding
+        )
     }
 
 }

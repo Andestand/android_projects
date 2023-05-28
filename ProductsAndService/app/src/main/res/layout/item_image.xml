@@ -14,4 +14,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
+
+    <ImageButton
+        android:id="@+id/deleteImageButton"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:backgroundTint="@color/material_on_surface_emphasis_medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/stream_ui_ic_close_white" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,8 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import project.productsandservice.databinding.FragmentChatsBinding
+import javax.inject.Inject
 
-class FragmentChats : Fragment() {
+class FragmentChats: Fragment() {
 
     companion object {
         fun newInstance() = FragmentChats()
@@ -21,6 +22,7 @@ class FragmentChats : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         binding = FragmentChatsBinding.inflate(layoutInflater)
         return binding.root
     }

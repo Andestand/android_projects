@@ -1,41 +1,62 @@
 package project.productsandservice.ui.createAdvert
 
-import android.content.Context
-import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import androidx.lifecycle.ViewModel
-import project.productsandservice.R
+import project.productsandservice.domain.usecase.GetTextCurrencyInSymbolUseCase
 import project.productsandservice.databinding.ActivityCreateAdvertBinding
 import project.productsandservice.domain.usecase.GetDateTimeUseCase
-import project.productsandservice.domain.usecase.GetTextCurrencyInSymbolUseCase
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.lifecycle.ViewModel
+import project.productsandservice.R
+import android.widget.ArrayAdapter
+import android.widget.AdapterView
+import android.content.Context
+import android.content.Intent
+import android.net.Uri
+import android.view.View
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import project.productsandservice.data.api.MyAdvertsDataBaseImplement
+import project.productsandservice.data.arrays.ImagesArray
+import project.productsandservice.data.arrays.UsersArray
+import project.productsandservice.domain.models.Advert
+import project.productsandservice.domain.models.Status
+import project.productsandservice.domain.usecase.AddAdvertUseCase
 
 class CreateAdvertViewModel: ViewModel() {
     private val getDateTimeUseCase = GetDateTimeUseCase()
     private val getTextCurrencyInSymbolUseCase = GetTextCurrencyInSymbolUseCase()
+    private val myAdvertsDataBaseImplement = MyAdvertsDataBaseImplement()
+    private val addAdvertUseCase = AddAdvertUseCase(myAdvertsDataBaseImplement)
+    private val adapterImages = AdapterImages()
 
     fun createAd(
-        context: Context,
-        binding: ActivityCreateAdvertBinding
+        binding: ActivityCreateAdvertBinding,
+        list: List<Uri>
     ) {
         if (
-            binding.titleAd.text.isNullOrEmpty() && binding.descriptionAd.text.isNullOrEmpty() &&
-            binding.priceAd.text.isNullOrEmpty()
+            isEmptyText(binding = binding)
         ) {
-
-        } else {
-
+            addAdvertUseCase.execute(
+                Advert(
+                    title = binding.titleAd.text?.toString()!!,
+                    description = binding.descriptionAd.text?.toString()!!,
+                    price = getSpinnerData(binding = binding),
+                    media_file = listOf(list.toString()),
+                    date_added = getDateTimeUseCase.execute(),
+                    author_advert = UsersArray.array[0],
+                    isStatus = Status.Active
+                )
+            )
+        }
+         else {
+            binding.titleAd.error = "Вы не ввели название объявления"
+            binding.descriptionAd.error = "Вы не ввели описание объявления"
+            binding.priceAd.error = "Вы не ввели цену объявления"
         }
     }
 
-    fun addImage(
-        binding: ActivityCreateAdvertBinding
-    ) {
-        binding.addImage.setOnClickListener {
-            getSpinnerData(
-                binding = binding
-            )
-        }
+    private fun isEmptyText(binding: ActivityCreateAdvertBinding): Boolean {
+        return !binding.titleAd.text?.isEmpty()!! && !binding.descriptionAd.text?.isEmpty()!! &&
+                !binding.priceAd.text?.isEmpty()!!
     }
 
     fun initSpinner(
@@ -45,7 +66,7 @@ class CreateAdvertViewModel: ViewModel() {
         ArrayAdapter.createFromResource(
             context.applicationContext,
             R.array.array,
-            R.layout.item_spinner
+            android.R.layout.simple_spinner_item
         ).also {
                 adapterSpinner -> adapterSpinner
             .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
@@ -55,18 +76,10 @@ class CreateAdvertViewModel: ViewModel() {
 
     private fun getSpinnerData(
         binding: ActivityCreateAdvertBinding
-    ) {
-        binding.spinnerCurrency.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?,
-                                        position: Int, id: Long
-            ) {
-                println(binding.priceAd.text.toString() +
-                        getTextCurrencyInSymbolUseCase.execute(parent?.selectedItem.toString()))
-            }
+    ): String = binding.priceAd.text.toString() +
+            getTextCurrencyInSymbolUseCase.execute(
+                binding.spinnerCurrency.selectedItem.toString()
+            )!!
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            }
-        }
-    }
 }

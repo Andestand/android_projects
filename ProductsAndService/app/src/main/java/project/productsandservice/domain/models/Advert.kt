@@ -11,5 +11,6 @@ data class Advert(
     val price: String,
     val media_file: List<String>,
     val date_added: String,
-    val author_advert: String
+    val author_advert: User,
+    val isStatus: Status
 ): Serializable, Parcelable

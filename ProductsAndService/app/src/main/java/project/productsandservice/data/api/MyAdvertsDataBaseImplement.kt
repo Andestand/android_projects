@@ -1,8 +1,8 @@
 package project.productsandservice.data.api
 
 import project.productsandservice.data.interfaces.MyAdvertsDataBaseInterface
-import project.productsandservice.data.models.User
 import project.productsandservice.domain.models.Advert
+import project.productsandservice.domain.models.User
 
 class MyAdvertsDataBaseImplement: MyAdvertsDataBaseInterface {
     override fun addAdvert(advert: Advert): Boolean {
@@ -19,5 +19,9 @@ class MyAdvertsDataBaseImplement: MyAdvertsDataBaseInterface {
 
     override fun getAdverts(user: User): List<Advert> {
         TODO("Not yet implemented")
+    }
+
+    override fun changeAdvert(advert: Advert): Boolean {
+        return false
     }
 }

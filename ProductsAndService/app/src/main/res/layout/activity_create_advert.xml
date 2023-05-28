@@ -6,35 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".ui.createAdvert.CreateAdvertActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarAdverts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginBottom="5dp"
+        app:contentInsetStartWithNavigation="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarAdverts"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:contentInsetStartWithNavigation="0dp"
-            app:title="@string/create_ad" />
-    </com.google.android.material.appbar.AppBarLayout>
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="?attr/homeAsUpIndicator"
+        app:title="@string/create_ad" />
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        app:layout_constraintTop_toBottomOf="@+id/toolbarAdverts">
 
         <LinearLayout
             android:id="@+id/linearLayout"
@@ -83,10 +78,19 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp">
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/rv_mediafiles"
+                <!--<Button
+                    android:id="@+id/buttonAllImages"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="40sp"
+                    android:layout_weight="1"
+                    android:text="@string/GetAllImages"
+                    android:textSize="11sp" />-->
+                <TextView
+                    android:id="@+id/image_size"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <LinearLayout

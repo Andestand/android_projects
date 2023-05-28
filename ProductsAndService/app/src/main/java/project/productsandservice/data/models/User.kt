@@ -1,4 +1,4 @@
-package project.productsandservice.data.models
+/*package project.productsandservice.data.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
@@ -17,5 +17,5 @@ data class User(
     val city: String,
     val date_registration: String,
     val chats: List<Chat>,
-    val adverts: List<Advert>
-): Parcelable
+    val adverts: List<Advert>?
+): Parcelable*/

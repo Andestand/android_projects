@@ -1,5 +1,9 @@
 package project.productsandservice.domain.usecase
 
-class AddAdvertUseCase {
+import project.productsandservice.data.interfaces.MyAdvertsDataBaseInterface
+import project.productsandservice.domain.models.Advert
 
+class AddAdvertUseCase(private val madbi: MyAdvertsDataBaseInterface) {
+
+    fun execute(advert: Advert): Boolean = madbi.addAdvert(advert = advert)
 }

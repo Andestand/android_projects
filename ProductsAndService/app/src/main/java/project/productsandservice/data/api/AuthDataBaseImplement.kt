@@ -1,33 +1,31 @@
 package project.productsandservice.data.api
 
 import project.productsandservice.data.interfaces.AuthDataBaseInterface
-import project.productsandservice.data.models.Login
-import project.productsandservice.data.models.User
-import java.sql.DriverManager
+import project.productsandservice.domain.models.Login
+import project.productsandservice.domain.models.User
 
 class AuthDataBaseImplement: AuthDataBaseInterface {
     override fun connectDB(username: String, password: String): Boolean {
-        DriverManager.getConnection("", username, password)
-        return true
+        return false
     }
 
     override fun sendNewUser(user: User): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
     override fun isUserValid(user: User): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
     override fun isAuthValid(login: Login): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
     override fun deleteUser(user: User): Boolean {
-        TODO("Not yet implemented")
+        return false
     }
 
-    override fun getUsers(): User {
+    override fun getUsers(): List<User> {
         TODO("Not yet implemented")
     }
 

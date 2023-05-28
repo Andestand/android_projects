@@ -54,14 +54,7 @@ class AdapterMyAds: RecyclerView.Adapter<AdapterMyAds.ViewHolder>() {
                     holder.itemView.context, AdvertActivity::class.java
                 ).apply {
                 putExtra("ad",
-                    Advert(
-                        title = array[position].title,
-                        description = array[position].description,
-                        price = array[position].price,
-                        media_file = array[position].media_file,
-                        date_added = array[position].date_added,
-                        author_advert = array[position].author_advert
-                    ) as Parcelable
+                    array[position] as Parcelable
                 )
             }
             )

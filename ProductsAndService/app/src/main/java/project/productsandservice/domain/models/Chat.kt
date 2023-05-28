@@ -2,7 +2,6 @@ package project.productsandservice.domain.models
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
-import project.productsandservice.data.models.User
 
 @Parcelize
 data class Chat(

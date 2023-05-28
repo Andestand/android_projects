@@ -1,11 +1,9 @@
 package project.productsandservice.domain.usecase
 
-import project.productsandservice.domain.client.AppClientInterface
-import project.productsandservice.domain.models.LoginDomain
+import project.productsandservice.data.interfaces.AuthDataBaseInterface
+import project.productsandservice.domain.models.Login
 
-class AuthUseCase(private val aci: AppClientInterface) {
+class AuthUseCase(private val aci: AuthDataBaseInterface) {
 
-    fun execute(login: LoginDomain): Boolean {
-        return aci.isUserAuth(login = login)
-    }
+    fun execute(login: Login): Boolean = aci.isAuthValid(login = login)
 }

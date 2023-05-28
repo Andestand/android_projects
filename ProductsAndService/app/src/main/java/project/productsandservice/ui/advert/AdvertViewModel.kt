@@ -18,7 +18,7 @@ class AdvertViewModel: ViewModel() {
     ) {
         binding.titleAd.text = ad.title
         binding.descriptionAd.text = ad.description
-
+        binding.toolbarAdverts.subtitle = ad.date_added
         for (i in ad.media_file) adapter.addImage(i)
 
         binding.PriceTextView.text = ad.price

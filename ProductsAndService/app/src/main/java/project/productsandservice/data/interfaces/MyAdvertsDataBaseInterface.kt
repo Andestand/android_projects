@@ -1,6 +1,6 @@
 package project.productsandservice.data.interfaces
 
-import project.productsandservice.data.models.User
+import project.productsandservice.domain.models.User
 import project.productsandservice.domain.models.Advert
 
 interface MyAdvertsDataBaseInterface {
@@ -12,4 +12,6 @@ interface MyAdvertsDataBaseInterface {
     fun isAdvert(advert: Advert): Boolean
 
     fun getAdverts(user: User): List<Advert>
+
+    fun changeAdvert(advert: Advert): Boolean
 }

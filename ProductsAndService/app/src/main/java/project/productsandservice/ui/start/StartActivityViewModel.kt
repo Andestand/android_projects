@@ -1,7 +1,6 @@
 package project.productsandservice.ui.start
 
-import android.content.Context
-import android.content.Intent
+import android.content.*
 import androidx.lifecycle.ViewModel
 import project.productsandservice.databinding.ActivityStartBinding
 import project.productsandservice.ui.auth.LoginActivity

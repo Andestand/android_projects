@@ -5,19 +5,22 @@ import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.GridLayoutManager
 import project.productsandservice.data.arrays.MessageUsersArray
 import project.productsandservice.databinding.FragmentChatsBinding
+import javax.inject.Inject
 
-class FragmentChatsViewModel : ViewModel() {
-    private val adapter = AdapterChats()
+class FragmentChatsViewModel@Inject constructor(): ViewModel() {
+    private val adapterChats = AdapterChats()
 
     fun initRV(
         context: Context,
         binding: FragmentChatsBinding
     ) {
-        binding.recyclerViewChats.layoutManager = GridLayoutManager(context, 1)
-        binding.recyclerViewChats.adapter = adapter
+        binding.recyclerViewChats.apply {
+            adapter = adapterChats
+            layoutManager = GridLayoutManager(context, 1)
+        }
 
         for (d in MessageUsersArray.array) {
-            adapter.addMU(d)
+            adapterChats.addMU(d)
         }
     }
 }

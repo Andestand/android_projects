@@ -2,6 +2,7 @@ package project.productsandservice.ui.advert
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -16,6 +17,7 @@ class AdvertImagesAdapter: RecyclerView.Adapter<AdvertImagesAdapter.ViewHolder>(
 
         fun bind(link: String) {
             Glide.with(itemView.context).load(link).into(item.image)
+            item.deleteImageButton.visibility = View.GONE
         }
     }
 

@@ -4,29 +4,25 @@ import android.text.Editable
 import android.text.TextWatcher
 import androidx.lifecycle.ViewModel
 import project.productsandservice.data.api.AuthDataBaseImplement
-import project.productsandservice.data.client.AppClientImplement
 import project.productsandservice.databinding.ActivityLoginBinding
-import project.productsandservice.domain.models.LoginDomain
+import project.productsandservice.domain.models.Login
 import project.productsandservice.domain.usecase.AuthUseCase
 
 class LoginActivityViewModel: ViewModel() {
-    private val stdbi = AuthDataBaseImplement()
-    private val acli = AppClientImplement(stdbi)
-
-    private val loginUseCase = AuthUseCase(acli)
+    private val adbi = AuthDataBaseImplement()
+    private val loginUseCase = AuthUseCase(adbi)
     private var isNull = false
 
     fun buttonAuth(
         binding: ActivityLoginBinding
     ) {
-        //println(isNullUserName(binding))
         binding.buttonAuth.setOnClickListener {
-            if (!isValid(binding = binding)) {
-                binding.username.error = "не правильно"
-                binding.password.error = "не правильно"
-            } else {
+            if (isValid(binding = binding)) {
                 binding.username.error = "правильно"
                 binding.password.error = "правильно"
+            } else {
+                binding.username.error = "не правильно"
+                binding.password.error = "не правильно"
             }
             println(isValid(binding = binding))
         }
@@ -37,7 +33,7 @@ class LoginActivityViewModel: ViewModel() {
     ): Boolean {
         return if (!binding.password.text?.isEmpty()!! && !binding.username.text?.isEmpty()!!) {
             loginUseCase.execute(
-                LoginDomain(
+                Login(
                     username = binding.username.text.toString(),
                     password = binding.password.text.toString()
                 )

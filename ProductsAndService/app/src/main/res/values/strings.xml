@@ -32,4 +32,11 @@
     <string name="input_messages">Введите сообщение</string>
     <string name="active_adverts">Активные объявлений</string>
     <string name="announcement_archive">Архив объявлений</string>
+    <string name="delete">Удалить</string>
+    <string name="change">Изменить</string>
+    <string name="ToArchive">Архивировать</string>
+    <string name="DeArchive">Разархивировать</string>
+    <string name="GetAllImages">Просмотреть все фотографии</string>
+    <string name="AllImages">Все фотографии</string>
+    <string name="empty">Пусто</string>
 </resources>

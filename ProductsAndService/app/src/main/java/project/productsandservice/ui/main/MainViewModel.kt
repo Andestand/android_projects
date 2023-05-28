@@ -4,8 +4,10 @@ import android.content.Context
 import android.content.Intent
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import androidx.room.Room
 import project.productsandservice.R
 import project.productsandservice.databinding.ActivityMainBinding
+import project.productsandservice.domain.models.StatusSession
 import project.productsandservice.ui.adverts.MyAdvertsActivity
 import project.productsandservice.ui.chats.FragmentChats
 import project.productsandservice.ui.home.FragmentHome
@@ -45,6 +47,11 @@ class MainViewModel: ViewModel() {
         context: Context,
         binding: ActivityMainBinding
     ) {
+        /*val db = Room.databaseBuilder(
+            context,
+            MyRoomManager::class.java, "db_sessions"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()*/
+
         binding.navView.setNavigationItemSelectedListener {
             when(it.itemId) {
                 R.id.my_ads -> {
@@ -55,6 +62,12 @@ class MainViewModel: ViewModel() {
                             MyAdvertsActivity::class.java
                         ).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                     )
+                }
+
+                R.id.exit_account -> {
+                    /*db.sessionDAO().setStatusSession(
+                        StatusSession.Inactive
+                    )*/
                 }
             }
             true

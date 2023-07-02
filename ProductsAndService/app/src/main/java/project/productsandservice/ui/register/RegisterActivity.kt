@@ -25,7 +25,7 @@ class RegisterActivity : AppCompatActivity() {
             val intent = Intent(Intent.ACTION_PICK).apply {
                 type = "image/*"
             }
-            startActivityForResult(intent, 1)
+            //startActivityForResult(intent, 1)
         }
     }
 

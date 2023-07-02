@@ -16,6 +16,7 @@ class FragmentActiveAdvertsViewModel : ViewModel() {
         context: Context,
         binding: FragmentActiveAdvertsBinding
     ) {
+
         binding.rv.apply {
             adapter = adapterAds
             layoutManager = GridLayoutManager(context, 2)

@@ -11,12 +11,17 @@ import android.content.Context
 import androidx.room.Room
 import android.net.Uri
 import android.os.Build
+import android.util.Log
+import android.widget.Toast
+import kotlin.math.absoluteValue
 
 class RegisterActivityViewModel: ViewModel() {
     private val stdbi = AuthDataBaseImplement()
     private val registerUseCase = RegisterUseCase(stdbi)
     private val getDateTimeUseCase = GetDateTimeUseCase()
     private lateinit var db: MyRoomManager
+    private val deviceFullName = "${Build.MANUFACTURER} ${Build.BRAND} ${Build.DEVICE}"
+
 
     fun clickBtn(
         context: Context,
@@ -28,46 +33,57 @@ class RegisterActivityViewModel: ViewModel() {
     }
     var uri: Uri? = null
 
+
     private fun addUser(
         context: Context,
         binding: ActivityRegisterBinding
     ) {
+        Log.d("RegisterClassDebugger", "Начало выполения метода")
         db = Room.databaseBuilder(
             context,
             MyRoomManager::class.java, "db_sessions"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
 
-
         if (isEmpty(binding)) {
-            db.userDAO().addUser(
+            Log.d("RegisterClassDebugger", "Начало выполения условия")
+            val long = db.userDAO().addUser(
                 user = getUser(binding)
             )
-            db.sessionDAO().createSession(
-                Session(
-                    device_name = Build.MANUFACTURER + Build.MODEL,
-                    user_id = getUserDB(getUser(binding)).id!!,
-                    isStatus = StatusSession.Active.name
+            if (/*isNotRepeat(binding)*/ long != -1L) {
+
+                println(long)
+                //val userId = getUserDB(getUser(binding)).id!!
+
+                /*db.sessionDAO().createSession(
+                    Session(
+                        device_name = deviceFullName,
+                        user_id = getUserDB(getUser(binding)).id!!,
+                        isStatus = StatusSession.Active.name
+                    )
+                )*/
+                registerUseCase.execute(
+                    getUser(binding)
                 )
-            )
 
-            for (i in db.userDAO().getUsers()) {
-                println(i)
+                for (i in db.userDAO().getUsers()) {
+                    println(i)
+                }
+
+                for (i in db.sessionDAO().getSessionAll()) {
+                    println(i)
+                }
+                Toast.makeText(context, "Пользователь создан!",
+                    Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "Такой username или email существует",
+                    Toast.LENGTH_SHORT).show()
+
             }
 
-            for (i in db.sessionDAO().getSessionAll()) {
-                println(i)
-            }
-            registerUseCase.execute(
-                getUser(binding)
-            )
+
         } else {
-            binding.username.error = "Поле ввода пустое"
-            binding.firstName.error = "Поле ввода пустое"
-            binding.lastName.error = "Поле ввода пустое"
-            binding.surname.error = "Поле ввода пустое"
-            binding.password.error = "Поле ввода пустое"
-            binding.city.error = "Поле ввода пустое"
-            binding.email.error = "Поле ввода пустое"
+            Log.d("RegisterClassDebugger", "Условие неверно")
+            Toast.makeText(context, "Не удалось зарегестрировать пользователя!", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -82,7 +98,7 @@ class RegisterActivityViewModel: ViewModel() {
         password = user.password,
         email = user.email,
         city = user.city,
-        date_registration = getDateTimeUseCase.execute()
+        date_registration = user.date_registration
     )
 
     private fun getUser(
@@ -100,19 +116,29 @@ class RegisterActivityViewModel: ViewModel() {
     )
 
     private fun isNotRepeat(
-        user: User,
         binding: ActivityRegisterBinding
-    ): Boolean {
-        return  getUser(binding).email != getUserDB(user).email &&
-                getUser(binding).username != getUserDB(user).username
+    ): Boolean = isUsername(binding) == null && isEmail(binding) == null
+
+    private fun isUsername(
+        binding: ActivityRegisterBinding
+    ): String? = try {
+        db.userDAO().getUsernameAndEmail(getUser(binding).username, getUser(binding).email).username
+    } catch (npe: NullPointerException) {
+        null
+    }
+
+    private fun isEmail(
+        binding: ActivityRegisterBinding
+    ): String? = try {
+        db.userDAO().getUsernameAndEmail(getUser(binding).username, getUser(binding).email).email
+    } catch (npe: NullPointerException) {
+        null
     }
 
     private fun isEmpty(
         binding: ActivityRegisterBinding
-    ): Boolean {
-        return !binding.username.text?.isEmpty()!! && !binding.firstName.text?.isEmpty()!! &&
-                !binding.lastName.text?.isEmpty()!! && !binding.surname.text?.isEmpty()!! &&
-                !binding.password.text?.isEmpty()!! && !binding.city.text?.isEmpty()!! &&
-                !binding.email.text?.isEmpty()!!
-    }
+    ): Boolean = !binding.username.text?.isEmpty()!! && !binding.firstName.text?.isEmpty()!! &&
+            !binding.lastName.text?.isEmpty()!! && !binding.surname.text?.isEmpty()!! &&
+            !binding.password.text?.isEmpty()!! && !binding.city.text?.isEmpty()!! &&
+            !binding.email.text?.isEmpty()!!
 }

@@ -4,12 +4,10 @@ import project.productsandservice.databinding.ActivityChatBinding
 import project.productsandservice.data.arrays.MessagesArray
 import project.productsandservice.domain.models.Message
 import androidx.recyclerview.widget.GridLayoutManager
-import project.productsandservice.di.AppComponent
 import androidx.lifecycle.ViewModel
 import android.content.Context
 import project.productsandservice.data.api.MessageExchange
 import project.productsandservice.domain.usecase.GetDateTimeUseCase
-import project.productsandservice.domain.usecase.GetTextCurrencyInSymbolUseCase
 import javax.inject.Inject
 
 class ChatViewModel@Inject constructor(): ViewModel() {

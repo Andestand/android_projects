@@ -1,29 +1,28 @@
 package ru.project.roomexample.ui.main
 
+import ru.project.roomexample.ui.registerUser.AddUserBottomSheetFragment
+import ru.project.roomexample.databinding.ActivityMainBinding
+import ru.project.roomexample.data.room.MyRoomManager
+import androidx.recyclerview.widget.GridLayoutManager
+import ru.project.roomexample.data.models.UserRoom
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModelProvider
+import androidx.room.Room
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.room.Room
-import ru.project.roomexample.data.models.UserRoom
-import ru.project.roomexample.data.room.MyRoomManager
-import ru.project.roomexample.databinding.ActivityMainBinding
-import ru.project.roomexample.ui.changeUser.ChangeUserBottomSheetFragment
-import ru.project.roomexample.ui.registerUser.AddUserBottomSheetFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var viewModel: MainViewModel
-    private val adapter = AdapterUsers()
-    //private lateinit var db: MyRoomManager
+    private val adapterUsers = AdapterUsers()
+    private lateinit var db: MyRoomManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
-        val db = Room.databaseBuilder(
+        db = Room.databaseBuilder(
             applicationContext,
             MyRoomManager::class.java,
             "database"
@@ -37,22 +36,21 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.swipe.setOnRefreshListener {
-            //updateList(db.userDAO().getAllUsers())
+            updateList(db.userDAO().getAllUsers())
             binding.swipe.isRefreshing = false
         }
 
         init()
     }
 
-    /*override fun onResume() {
+    override fun onResume() {
         super.onResume()
         updateList(db.userDAO().getAllUsers())
     }
 
     private fun updateList(user: List<UserRoom>) {
-        adapter.submitList(user)
+        adapterUsers.submitList(user)
         updateIsEmpty()
-
     }
 
     private fun updateIsEmpty() {
@@ -61,10 +59,13 @@ class MainActivity : AppCompatActivity() {
         } else {
             binding.isEmpty.visibility = View.VISIBLE
         }
-    }*/
+    }
 
     private fun init() {
-        binding.rvUsers.adapter = adapter
-        binding.rvUsers.layoutManager = GridLayoutManager(applicationContext, 2)
+        binding.rvUsers.apply {
+            adapter = adapterUsers
+            layoutManager = GridLayoutManager(applicationContext, 2)
+        }
+
     }
 }

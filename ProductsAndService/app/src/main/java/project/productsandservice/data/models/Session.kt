@@ -3,7 +3,13 @@ package project.productsandservice.data.models
 import androidx.room.*
 
 @Entity(
-    tableName = "session"
+    tableName = "session",
+    indices = [
+        Index(
+            value = ["user_id"],
+            unique = true
+        )
+    ]
 )
 data class Session(
     @PrimaryKey(

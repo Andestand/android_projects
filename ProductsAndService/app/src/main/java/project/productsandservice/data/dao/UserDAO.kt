@@ -29,8 +29,15 @@ interface UserDAO {
         date_registration: String
     ): User
 
-    @Insert
-    fun addUser(user: User)
+
+    @Query("SELECT * FROM users WHERE username=:username AND email=:email")
+    fun getUsernameAndEmail(
+        username: String,
+        email: String,
+    ): User
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    fun addUser(user: User): Long
 
     @Delete
     fun deleteUser(user: User)

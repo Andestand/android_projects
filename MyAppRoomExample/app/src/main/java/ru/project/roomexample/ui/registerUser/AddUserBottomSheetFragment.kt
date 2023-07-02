@@ -20,7 +20,6 @@ class AddUserBottomSheetFragment: BottomSheetDialogFragment() {
     private lateinit var binding: WriteUsersBinding
     private lateinit var db: MyRoomManager
 
-
     override fun getTheme(): Int {
         return R.style.BackgroundBottomSheet
     }
@@ -42,31 +41,54 @@ class AddUserBottomSheetFragment: BottomSheetDialogFragment() {
             MyRoomManager::class.java,
             "database"
         ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
-        binding.AddButton.setOnClickListener {
-            if (!isUser(getUser()) and isUserEmpty()) {
-                db.userDAO().addUser(getUser())
-                Toast.makeText(view.context, "Пользователь создан", Toast.LENGTH_SHORT).show()
-                onStop()
-            } else {
-                binding.username.error = "Пользователь с таким ником уже создан"
-                Toast.makeText(view.context, "Пользователь не создан", Toast.LENGTH_SHORT).show()
-            }
 
+        binding.AddButton.setOnClickListener {
             if (isUserEmpty()) {
+                if (isNotRepeat() && isUserEmpty()) {
+                    db.userDAO().addUser(getUser())
+
+                    for (i in db.userDAO().getAllUsers()) {
+                        println(i)
+                    }
+                    Toast.makeText(view.context, "Пользователь создан", Toast.LENGTH_SHORT).show()
+                    onStop()
+
+                } else {
+                    binding.username.error = "Пользователь с таким ником уже создан"
+                    Toast.makeText(view.context, "Пользователь не создан", Toast.LENGTH_SHORT).show()
+                }
+
+            } else {
                 binding.username.error = "Поле ввода ника пустое"
                 binding.password.error = "Поле ввода пароля пустое"
             }
         }
-
     }
 
-    private fun isUser(userRoom: UserRoom): Boolean = db.userDAO().isUser(
-        username = userRoom.username,
-        password = userRoom.password
-    ) != null
+    private fun isNotRepeat(): Boolean = isUsername() == null && isPassword() == null
+
+    private fun isUsername(
+
+    ): String? = try {
+        db.userDAO().findByUsername(
+            username = binding.username.text.toString()
+        ).username
+    } catch (npe: NullPointerException) {
+        null
+    }
+
+    private fun isPassword(
+
+    ): String? = try {
+        db.userDAO().findByPassword(
+            password = binding.password.text.toString()
+        ).password
+    } catch (npe: NullPointerException) {
+        null
+    }
 
     private fun isUserEmpty(): Boolean =
-        binding.username.text?.isEmpty()!! and binding.password.text?.isEmpty()!!
+        !binding.username.text?.isEmpty()!! and !binding.password.text?.isEmpty()!!
 
 
     private fun getUser(): UserRoom = UserRoom(

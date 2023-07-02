@@ -7,13 +7,16 @@ import project.productsandservice.data.arrays.MessageUsersArray
 import project.productsandservice.databinding.FragmentChatsBinding
 import javax.inject.Inject
 
-class FragmentChatsViewModel@Inject constructor(): ViewModel() {
+class FragmentChatsViewModel: ViewModel() {
     private val adapterChats = AdapterChats()
+
+    //val adapterChats_: AdapterChats() by inject()
 
     fun initRV(
         context: Context,
         binding: FragmentChatsBinding
     ) {
+
         binding.recyclerViewChats.apply {
             adapter = adapterChats
             layoutManager = GridLayoutManager(context, 1)

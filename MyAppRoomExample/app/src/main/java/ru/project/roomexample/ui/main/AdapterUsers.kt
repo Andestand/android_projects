@@ -75,7 +75,6 @@ class AdapterUsers: ListAdapter<UserRoom, AdapterUsers.ViewHolder>(DiffCallback(
         override fun areContentsTheSame(oldItem: UserRoom, newItem: UserRoom): Boolean {
             return oldItem == newItem
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

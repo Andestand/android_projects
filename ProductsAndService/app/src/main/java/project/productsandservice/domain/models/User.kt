@@ -5,7 +5,13 @@ import androidx.room.*
 import kotlinx.parcelize.Parcelize
 
 @Entity(
-    tableName = "users"
+    tableName = "users",
+    indices = [
+        Index(
+            value = ["username", "email"],
+            unique = true
+        )
+    ]
 )
 @Parcelize
 data class User(

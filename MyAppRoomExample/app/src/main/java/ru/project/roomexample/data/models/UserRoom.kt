@@ -4,7 +4,13 @@ import androidx.room.*
 import java.io.Serializable
 
 @Entity(
-    tableName = "users"
+    tableName = "users",
+    indices = [
+        Index(
+            value = ["username", "password"],
+            unique = true
+        )
+    ]
 )
 data class UserRoom(
     @PrimaryKey(

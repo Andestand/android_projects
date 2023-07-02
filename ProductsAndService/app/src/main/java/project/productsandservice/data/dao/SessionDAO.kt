@@ -17,7 +17,7 @@ interface SessionDAO {
     @Query("SELECT * FROM session WHERE isStatus=:status")
     fun setStatusSession(status: String): Session
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun createSession(session: Session)
 
     @Delete

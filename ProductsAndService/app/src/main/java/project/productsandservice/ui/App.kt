@@ -1,21 +1,22 @@
 package project.productsandservice.ui
 
+import org.koin.core.context.startKoin
+import project.productsandservice.di.*
+import org.koin.android.ext.koin.*
+import org.koin.core.logger.Level
 import android.app.Application
-import android.content.Context
-import android.content.Intent
-import android.util.Log
-import android.widget.Toast
-import androidx.room.Room
-import project.productsandservice.di.AppComponent
-import project.productsandservice.domain.models.StatusSession
-import project.productsandservice.ui.start.StartActivity
 
 class App: Application() {
-    //lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-        //appComponent = DaggerAppComponent.create()
+
+        startKoin {
+            androidLogger(Level.DEBUG)
+            androidContext(this@App)
+            modules(listOf(appModule, dataModule, domainModule))
+        }
+
         /*val db = Room.databaseBuilder(
             applicationContext,
             MyRoomManager::class.java, "db_sessions"

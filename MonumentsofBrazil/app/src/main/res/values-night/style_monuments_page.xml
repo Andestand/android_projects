@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleCardView" parent="Theme.AppCompat.DayNight">
+        <item name="backgroundTint">@color/yellow</item>
+        <!--<item name="bottomSheetStyle">@style/AppModalStyle</item>-->
+    </style>
+
+    <style name="StyleTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/dark_blue</item>
+    </style>
+
+    <style name="StyleText" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/green</item>
+    </style>
+</resources>

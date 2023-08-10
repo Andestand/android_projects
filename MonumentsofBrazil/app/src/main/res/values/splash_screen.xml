@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SplashScreenStyle" parent="Theme.SplashScreen">
+        <item name="android:backgroundTint">@drawable/start</item>
+    </style>
+</resources>

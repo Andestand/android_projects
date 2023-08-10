@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyStyleSettingsDialogFragment" parent="Theme.AppCompat.Light.Dialog">
+
+    </style>
+
+    <style name="AppModelDialogFragment" parent="Theme.AppCompat.Light.Dialog">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+</resources>

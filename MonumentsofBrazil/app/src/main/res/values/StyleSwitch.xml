@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="CustomSwitchStyle" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="trackTint">@color/green</item> <!-- Цвет фона -->
+        <item name="thumbTint">@color/green</item> <!-- Цвет ползунка -->
+        <item name="android:thumb">@drawable/thump_switch</item> <!-- Изображение ползунка -->
+    </style>
+
+</resources>

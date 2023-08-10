@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="SwitchSettings" parent="Widget.Material3.CompoundButton.Switch">
+        <item name="android:background">@drawable/rectangle_night</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="android:thumb">@drawable/ball</item>
+        <item name="thumbTint">@color/white</item>
+        <item name="trackTint">@color/green</item>
+    </style>
+</resources>

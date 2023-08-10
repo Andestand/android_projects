@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="StyleCardView" parent="Theme.AppCompat.Light">
+        <item name="backgroundTint">@color/green</item>
+    </style>
+
+    <style name="StyleTitle" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/yellow</item>
+    </style>
+
+    <style name="StyleText" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

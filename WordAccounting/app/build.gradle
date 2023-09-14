@@ -37,6 +37,15 @@ android {
 }
 
 dependencies {
+
+    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
+
+    def room_version = "2.4.0-alpha03"
+    kapt "androidx.room:room-compiler:$room_version"
+    annotationProcessor "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-runtime:$room_version"
+    //implementation 'com.github.prolificinteractive:material-calendarview:1.4.0'
+    implementation "com.google.android.gms:play-services-location:21.0.1"
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "org.osmdroid:osmdroid-android:6.1.16"
     implementation 'androidx.core:core-ktx:1.9.0'

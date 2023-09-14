@@ -18,15 +18,6 @@ class MainViewModel: ViewModel() {
         bottomNavigationView.setOnItemSelectedListener {
                 when(it.itemId) {
                     R.id.reportsItem -> {
-                        /*fragmentManager.apply {
-                            beginTransaction().apply {
-                                replace(
-                                    fragmentContainerView.id,
-                                    ReportsFragment()
-                                ).commit()
-                            }
-                        }*/
-
                         fragmentManager.beginTransaction().replace(
                             fragmentContainerView.id,
                             ReportsFragment()
@@ -34,15 +25,6 @@ class MainViewModel: ViewModel() {
                     }
 
                     R.id.mapItem -> {
-                         /* fragmentManager.apply {
-                            beginTransaction().apply {
-                                replace(
-                                    fragmentContainerView.id,
-                                    MapFragment()
-                                ).commit()
-                            }
-                        }*/
-
                         fragmentManager.beginTransaction().replace(
                             fragmentContainerView.id,
                             MapFragment()
@@ -51,8 +33,5 @@ class MainViewModel: ViewModel() {
                 }
                 true
             }
-            //menu.findItem(R.id.map).isChecked = true
-
     }
-
 }

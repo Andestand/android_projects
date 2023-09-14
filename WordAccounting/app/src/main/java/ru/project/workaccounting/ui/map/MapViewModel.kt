@@ -1,31 +1,43 @@
 package ru.project.workaccounting.ui.map
 
-import android.Manifest
-import android.app.Activity
 import android.content.Context
-import android.content.pm.PackageManager
+import android.content.Context.LOCATION_SERVICE
+import android.location.LocationManager
 import android.preference.PreferenceManager
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
+import android.widget.Toast
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.ViewModel
+import androidx.room.Room
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import org.osmdroid.api.IMapController
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
+import org.osmdroid.views.overlay.ItemizedIconOverlay
+import org.osmdroid.views.overlay.ItemizedOverlayWithFocus
 import org.osmdroid.views.overlay.Marker
-import org.osmdroid.views.overlay.mylocation.MyLocationNewOverlay
-import ru.project.workaccounting.data.arrays.Permissions
+import org.osmdroid.views.overlay.OverlayItem
+import ru.project.workaccounting.data.arrays.Reports
+import ru.project.workaccounting.data.database.MyRoomManager
+import ru.project.workaccounting.domain.models.Report
 import ru.project.workaccounting.ui.reportView.MyReportBottomFragment
 
+
 class MapViewModel : ViewModel() {
+    private lateinit var locationManager: LocationManager
+    private lateinit var db: MyRoomManager
     fun mapView(
         context: Context,
         map: MapView,
         fragmentManager: FragmentManager
     ) {
+        db = Room.databaseBuilder(
+            context,
+            MyRoomManager::class.java,
+            "database"
+        ).fallbackToDestructiveMigration().allowMainThreadQueries().build()
+
         Configuration.getInstance().load(
             context,
             PreferenceManager.getDefaultSharedPreferences(context)
@@ -34,41 +46,43 @@ class MapViewModel : ViewModel() {
         map.apply {
             setTileSource(TileSourceFactory.MAPNIK)
 
-            controller.setZoom(5.0)
+            controller.setZoom(4.0)
 
             controller.setCenter(
-                GeoPoint(
-                    0.0,
-                    0.0
+                GeoPoint(0.0, 0.0)
+            )
+
+            for (i in db.reportDAO().getReportAll()) {
+                addMarker(
+                    id = i.id!!,
+                    map = this,
+                    report = i,
+                    fragmentManager = fragmentManager,
+                    context = context
                 )
-            )
+            }
 
-            addMarker(
-                map = this,
-                geoPoint = GeoPoint(
-                    57.685064083828074,
-                    46.60028995718904
-                ),
-                fragmentManager = fragmentManager
-            )
-
-            //setBuiltInZoomControls(true)
             setMultiTouchControls(true)
         }
     }
 
     private fun addMarker(
+        id: Long,
         map: MapView,
-        geoPoint: GeoPoint,
-        fragmentManager: FragmentManager
+        report: Report,
+        fragmentManager: FragmentManager,
+        context: Context
     ) = Marker(map).apply {
         val marker = this
 
-        position = GeoPoint(geoPoint.latitude, geoPoint.longitude)
+        position = GeoPoint(report.geoPoint.latitude, report.geoPoint.longitude)
         setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
 
         setOnMarkerClickListener { marker, map ->
-            MyReportBottomFragment().show(
+            Toast.makeText(context, id.toString(), Toast.LENGTH_LONG).show()
+            MyReportBottomFragment(
+                report = report,
+            ).show(
                 fragmentManager, "myReportBottomFragment"
             )
             true
@@ -80,63 +94,4 @@ class MapViewModel : ViewModel() {
         }
     }
 
-    private fun hasPermissions(
-        context: Context,
-        vararg permissions: String
-    ): Boolean {
-        for (permission in permissions) {
-            if (ContextCompat.checkSelfPermission(
-                    context,
-                    permission
-            ) != PackageManager.PERMISSION_GRANTED) {
-                return false
-            }
-        }
-        return true
-    }
-
-    fun getGeoData(
-        map: MapView,
-        activity: Activity,
-        context: Context,
-        button: FloatingActionButton
-    ) {
-        button.setOnClickListener {
-            if (!hasPermissions(
-                    context = context,
-                    permissions = Permissions.permissions
-            )) {
-                ActivityCompat.requestPermissions(
-                    activity,
-                    Permissions.permissions,
-                    1
-                )
-            } else {
-                getUserLocation(
-                    map = map,
-                    context = context
-                )
-            }
-        }
-    }
-
-    private fun getUserLocation(
-        map: MapView,
-        context: Context
-    ) {
-        if (
-            ContextCompat.checkSelfPermission(
-                context,
-                Permissions.permissions[0]
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-           val controller: IMapController = map.controller
-           val overlay = MyLocationNewOverlay(map)
-
-           map.overlays.add(overlay)
-           overlay.enableMyLocation()
-           controller.setZoom(15.0)
-           controller.setCenter(overlay.myLocation)
-        }
-    }
 }

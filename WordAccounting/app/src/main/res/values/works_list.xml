@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="WorkList">
+        <item>Замена АКБ</item>
+        <item>Замена кабеля</item>
+        <item>замена блока питания</item>
+        <item>замена варистора</item>
+        <item>порог напряжения</item>
+        <item>ТО</item>
+        <item>МОЭМ</item>
+    </string-array>
+</resources>

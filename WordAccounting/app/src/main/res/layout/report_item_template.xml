@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="2dp">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_weight="1"
+                    app:cardCornerRadius="7dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ID:"
+                            android:textColor="@color/black"
+                            android:textSize="8sp" />
+
+                        <TextView
+                            android:id="@+id/idReport"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="5dp"
+                    android:layout_weight="100"
+                    app:cardCornerRadius="7dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="ФИО:"
+                            android:textColor="@color/black"
+                            android:textSize="8sp" />
+
+                        <TextView
+                            android:id="@+id/worker"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Яровой Андрей Фёдорович"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </androidx.cardview.widget.CardView>
+
+                <ImageButton
+                    android:id="@+id/deleteReport"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="0.5"
+                    app:srcCompat="@android:drawable/ic_menu_delete" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="7dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Время и дата:"
+                        android:textColor="@color/black"
+                        android:textSize="8sp" />
+
+                    <TextView
+                        android:id="@+id/datetime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="01.09.2023 18:23"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                app:cardCornerRadius="7dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Адресс:"
+                        android:textColor="@color/black"
+                        android:textSize="8sp" />
+
+                    <TextView
+                        android:id="@+id/address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="адресс"
+                        android:textColor="@color/black"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/updateReport"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="Изменить отчёт"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="7dp" />
+
+            <Button
+                android:id="@+id/getDataWorkButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="О проделанной работе"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:cornerRadius="7dp" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
